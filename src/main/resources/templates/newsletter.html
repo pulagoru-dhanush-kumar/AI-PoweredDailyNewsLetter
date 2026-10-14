@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body style="font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:20px;">
+  <div style="max-width:640px;margin:auto;background:#fff;padding:24px;border-radius:8px;">
+    <h1 style="margin-top:0;" th:text="${title}">Daily AI News</h1>
+    <p style="color:#888;font-size:12px;" th:text="'Generated ' + ${generatedAt}"></p>
+
+    <div th:each="a : ${articles}" style="border-top:1px solid #eee;padding:16px 0;">
+      <h2 style="font-size:18px;margin:0 0 8px;">
+        <a th:href="${a.url()}" th:text="${a.title()}" style="color:#1a56db;text-decoration:none;">Title</a>
+      </h2>
+      <p style="margin:0 0 8px;" th:text="${a.summary()}"></p>
+      <p style="margin:0 0 8px;"><strong>Key takeaway:</strong> <span th:text="${a.keyTakeaway()}"></span></p>
+      <p style="color:#888;font-size:12px;margin:0;" th:text="${a.source()}"></p>
+    </div>
+  </div>
+</body>
+</html>
